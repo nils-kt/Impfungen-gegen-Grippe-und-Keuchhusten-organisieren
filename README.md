@@ -35,7 +35,7 @@ There are different solutions that we try to solve in a web app.
 Ideas:  
 - Appointment for vaccination online (similar to the appointment with TÜV)
 - Information page online cooperation
-- Portal for vaccine manufacturers, health insurance companies, medical assistants
+- Portal for medical assistants and patients
 
 ## 📑 General analysis of the problem
 > Problems, approaches to solutions, formulation of the challenges, stakeholder group etc.
@@ -55,10 +55,13 @@ You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with
 - Spring Boot Webflux
 - Spring Boot MongoDB
 - React
+    - react-bootstrap
 
 > Requirements: 
 
-Java SDK 1.8.x
+ - Java SDK 1.8.x
+ - Node.js
+ - NPM
 
 > Maven
 
@@ -71,6 +74,16 @@ maven clean install
 
 Windows:
 mvnw clean install
+```
+
+> Frontend
+
+Go into `/src/fronted` and type:
+```text
+npm i
+
+To start the dev server:
+npm start
 ```
 
 
