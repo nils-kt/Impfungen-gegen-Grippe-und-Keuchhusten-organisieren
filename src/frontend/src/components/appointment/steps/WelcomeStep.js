@@ -24,7 +24,7 @@ export class WelcomeStep extends React.Component {
     					<br /><b>2. Beantworten Sie die Fragen.</b>
     					<br /><b>3. Drücken Sie auf den Button 'Termin beantragen' unten rechts, um einen Termin zu bekommen.</b>
     					<br />
-    					<br />Sie erhalten eine E-Mail mit Daten wann Sie wo zu erscheinen haben Bleiben Sie gesund>
+    					<br />Sie erhalten eine E-Mail mit Daten, wann Sie wo zu erscheinen haben. Bleiben Sie gesund!
     		</p>;
   }
 }
