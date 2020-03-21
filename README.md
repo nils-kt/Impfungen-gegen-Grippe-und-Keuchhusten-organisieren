@@ -1,3 +1,4 @@
+
 <!-- LOGO -->
 <br />
 <p align="center">
@@ -48,25 +49,21 @@ You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with
 
 ## 🔧 Project Setup
 
-Dependencies:
+**Dependencies:**
 
 - Spring Boot Webservices
 - Spring Boot Webflux
 - Spring Boot MongoDB
-- Reactor
+- React
 
-Requirements:
-
+**Requirements:**  
 Java SDK >= 1.8.x 
 
-Maven
-
-
+**Maven**
 1. Clone this Github repo
-
 2. Run the Maven project in your IDE of choice or use
 
-```
+```sh
 Linux:
 maven clean install
 
