@@ -1,4 +1,4 @@
-package com.wirvsvirus.impfung;
+package org.wirvsvirushackathon.impfung;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
