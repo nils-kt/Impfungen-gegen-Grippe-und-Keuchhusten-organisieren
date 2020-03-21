@@ -19,9 +19,9 @@ export class Api {
    * @param {Object} opts - The options
    * @returns {Array} - [true/false, data/err]
    */
-  request(path, opts) {
+  async request(path, opts) {
     try {
-      const res = await fetch(baseUrl+path, opts)
+      const res = await fetch(this.baseUrl+path, opts)
       if (!res.ok) throw new Error(res)
       return [true, res]
     } catch (err) {
