@@ -50,4 +50,4 @@ You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with
  - [Nils Kleinert](https://nilskleinert.de)
  - [Steven Agyekum](https://github.com/Burnett01)
  - [Stephan Tönnies](https://github.com/StephanToennies)
- - [Yabbick Radke](https://github.com/YK18415) 
+ - [Yannick Radke](https://github.com/YK18415) 
