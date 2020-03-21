@@ -58,7 +58,7 @@ You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with
 
 > Requirements: 
 
-Java SDK >= 1.8.x 
+Java SDK 1.8.x
 
 > Maven
 
