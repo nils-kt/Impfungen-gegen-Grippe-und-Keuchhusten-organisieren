@@ -35,7 +35,7 @@ There are different solutions that we try to solve in a web app.
 Ideas:  
 - Appointment for vaccination online (similar to the appointment with TÜV)
 - Information page online cooperation
-- Portal for vaccine manufacturers, health insurance companies, medical assistants
+- Portal for medical assistants and patients
 
 ## 📑 General analysis of the problem
 > Problems, approaches to solutions, formulation of the challenges, stakeholder group etc.
