@@ -1,77 +1,53 @@
-# Impfungen gegen Grippe und Keuchhusten organisieren
+<!-- LOGO -->
+<br />
+<p align="center">
+    <img src="https://i.imgur.com/irYu4mI.png" alt="Logo" height="200">
+  <h3 align="center">Organise vaccinations against influenza and whooping cough</h3>
+  <h6 align="center">Impfungen gegen Grippe und Keuchhusten organisieren</h6>
 
-![Hackathon Logo](.github/2020-03-18-hackathon.jpg)
+  <p align="center">
+    #WIRVSVIRUS Corona-Crisis Hackathon - Organized by the German government
+    <br />
+    <br />
+  </p>
+</p>
 
-## Resourcen
+## 🗂 Table of Contents
 
-- Google Doc: https://docs.google.com/document/d/1EZDsq0mzNTjnUHc88uqt3O2zQ2GAqX1Xlyb_yDrL2RI/
+* [Problem Statement](#-problem-statement)
+* [Solution](#-solution)
+* [General analysis of the problem](#-general-analysis-of-the-problem)
+* [Contact](#-contact)
+* [Contributor](#-contributor)
 
-## Kommunikation
+## 🤯 Problem Statement
+> What exact problem are we trying to solve?
 
-- Discord: https://discord.gg/SNtX7CZ
+The World Health Organization and the Robert Koch Institute
+recommend vaccinations against influenza and pertussis (influenza and pneumococcus) to risk groups. The problem is to organise these (with the aim of having as few people as possible in contact with them). In particular, it seems inefficient if each individual person at risk visits a doctor, gets informed about the vaccination, orders vaccine and comes back for vaccination later.
 
-- Slack: https://wirvsvirus.slack.com/archives/C0103KPLPUK
+## 🚀 Solution
+> How are we trying to solve this problem?
 
----
+There are different solutions that we try to solve in a web app.
+Ideas:  
+- Appointment for vaccination online (similar to the appointment with TÜV)
+- Information page online cooperation
+- Portal for vaccine manufacturers, health insurance companies, medical assistants
 
-## PROBLEME
+## 📑 General analysis of the problem
+> Problems, approaches to solutions, formulation of the challenges, stakeholder group etc.
 
-WHO und RKI empfehlen den Risikogruppen Impfungen gegen Grippe und Keuchhusten (Influenza und Pneumokokken).Problem ist es, diese zu organisieren (unter dem Aspekt möglichst wenige soziale Kontakte zu haben). Insbesondere erscheint es ineffizient, wenn jede einzelne Risikoperson einen Arzt aufsucht, sich informieren lässt, Impfstoff bestellt, später wieder kommt zum Impfen, ...Eine Lösung, die Anlaufstellen, Impfstoffversorgung und Termine koordiniert könnte helfen.
+You can find this in our [Google Document](https://docs.google.com/document/d/1lXkxDYK4uNGaO6yIrNM39e_6-UJcBmuyNB2GVQkAq0s/edit).
 
-## FORMULIERUNG HERAUSFORDERUNG
+## 💌 Contact
+> Drop us a line or write with us. Maybe ... help us?
 
-Wie können wir die Risikogruppe impfen ohne sie einem weiteren Risiko auszusetzen?
-
-## LÖSUNGSANSATZ
-
-Ideen:
--Terminvereinbarung zum Impfen online (ähnlich wie Terminvergabe Rathaus Kiel)
--Informationsseite online-Zusammenarbeit
--Portal für Impfstoffhersteller, Krankenkassen, Arzthelfer:innen
-
-## BETROFFENENGRUPPE
-
-Ärzte werden entlastet:
-Weniger Leute haben Symptome, die sie fälschlicherweise für Corona halten könnten
-Risikominimierung für Risikogruppe: Doppelinfektionen (Corona+Grippe/Corona+Keuchhusten) können vermieden werden
-
-## STAKEHOLDER
-
-Risikogruppe, Ärzte
-
-## Ideen-Abstract
-
-Blackbox → NUTZER möchte sich impfen lassen →  Abwickeln des Impfvorgang´s  
-
-Der NUTZER möchte einen ZEITNAHEN TERMIN für eine IMPFUNG, ohne dass dieser in Gefahr einer Ansteckung gebracht wird.
-Dies dient dazu, dass der NUTZER im Falle einer Corona-Erkrankung nicht zusätzlich gefährdet ist bzw. keinen schweren Verlauf erleidet.
-
-In der PRAXIS sollten möglichst viele NUTZER geimpft werden.
-Damit die PRAXIS möglichst viele NUTZER impfen kann, benötigt er IMPFSTOFFE.
-Die TERMINVERGABE und die tatsächliche IMPFUNG soll ZEITNAH und LOKAL geschehen.
-
-## Akzeptanzkriterien
-
-Meine Idee ist erfolgreich umgesetzt, wenn
-der NUTZER die Kenntnis hat, wo er ZEITNAH und LOKAL geimpft wird.
-die Terminvergabe ZEITNAH erfolgt ist.
-eine PRAXIS genug IMPFSTOFFE für ihre NUTZER hat.
-eine PRAXIS die ARBEITSKRAFT hat, seine NUTZER ZEITNAH zu impfen.
-die entsprechende PRAXIS bei dem TERMIN geöffnet hat.
-der NUTZER geimpft ist.
-
-## Lösungsansätze
-
-(wip) Terminvereinbarung zum Impfen online (ähnlich wie Terminvergabe Rathaus Kiel)
-(wip) Anzahl der IMPFSTOFFE und TERMINE in Bezug zueinander setzen (Schnittmenge) um NUTZER effizient auf PRAXEN aufzuteilen
-
-## Offene Fragen
-
-Wie (können) die Ärzte in der angegebenen Region gefunden werden?
-Müssen sich Ärzte registrieren oder wird z.B. die Google API genutzt?
-Welche Programmiersprache? Java → Spring.io, Maven
-Was für eine Datenbank? GraphQL
-Von wem die Impfungen zur Impfung bereitgestellt? (Von der Praxis oder vom Patienten)
-
-
-
+You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with us, or in [Discord](https://discord.gg/pVkYShn) (recommended).
+ 
+## 👍 Contributor
+ > The devs behind the project
+ - [Nils Kleinert](https://nilskleinert.de)
+ - [Steven Agyekum](https://github.com/Burnett01)
+ - [Stephan Tönnies](https://github.com/StephanToennies)
+ - [Yabbick Radke](https://github.com/YK18415) 
