@@ -1,3 +1,4 @@
+
 <!-- LOGO -->
 <br />
 <p align="center">
@@ -46,27 +47,25 @@ You can find this in our [Google Document](https://docs.google.com/document/d/1l
 
 You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with us, or in [Discord](https://discord.gg/pVkYShn) (recommended).
 
-## Project Setup
+## 🔧 Project Setup
 
-Dependencies:
+> Dependencies:
 
 - Spring Boot Webservices
 - Spring Boot Webflux
 - Spring Boot MongoDB
-- Reactor
+- React
 
-Requirements:
+> Requirements: 
 
-Java SDK >= 1.8.x 
+Java SDK 1.8.x
 
-Maven
-
+> Maven
 
 1. Clone this Github repo
-
 2. Run the Maven project in your IDE of choice or use
 
-```
+```sh
 Linux:
 maven clean install
 
@@ -81,3 +80,4 @@ mvnw clean install
  - [Steven Agyekum](https://github.com/Burnett01)
  - [Stephan Tönnies](https://github.com/StephanToennies)
  - [Yannick Radke](https://github.com/YK18415) 
+ - [Marcel](https://github.com/4sakura)
