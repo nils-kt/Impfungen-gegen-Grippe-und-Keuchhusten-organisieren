@@ -78,7 +78,7 @@ mvnw clean install
 
 > Frontend
 
-Go into `/src/fronted` and type:
+Go into `/src/frontend` and type:
 ```text
 npm i
 
