@@ -6,14 +6,14 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-public class Termin {
+public class Appointment {
 	
 	@Id
 	private String id;
 	private LocalDateTime time;
 	private String description;
 	
-	public Termin(LocalDateTime time) {
+	public Appointment(LocalDateTime time) {
 		this.setTime(time);
 	}
 
