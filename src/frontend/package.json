@@ -8,7 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
     "react": "^16.13.1",
-    "react-bootstrap-wizard": "0.0.7",
+    "react-bootstrap-wizard-customized": "0.0.7",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "reactstrap": "^8.4.1"

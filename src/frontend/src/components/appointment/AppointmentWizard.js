@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import ReactWizard from 'react-bootstrap-wizard';
+import ReactWizard from 'react-bootstrap-wizard-customized';
 
 import WelcomeStep from './steps/WelcomeStep';
 import SecondStep from './steps/SecondStep';
@@ -34,6 +34,7 @@ export default class AppointmentWizard extends React.Component {
               title={title}
               description={description}
               headerTextCenter
+              headerTextColor="#fff"
               validate
               color="primary"
               finishButtonClick={this.finishButtonClick}
