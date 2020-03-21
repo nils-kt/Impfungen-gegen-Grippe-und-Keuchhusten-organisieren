@@ -1,4 +1,4 @@
 
 import { Api } from 'classes/Api'
 
-export const api = new Api('https://backend') // Todo: Move to .env
+export const api = new Api(process.env.REACT_APP_API)
