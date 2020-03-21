@@ -93,4 +93,3 @@ npm start
  - [Steven Agyekum](https://github.com/Burnett01)
  - [Stephan Tönnies](https://github.com/StephanToennies)
  - [Yannick Radke](https://github.com/YK18415) 
- - [Marcel](https://github.com/4sakura)
