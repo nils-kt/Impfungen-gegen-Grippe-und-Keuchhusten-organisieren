@@ -4,7 +4,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // React Bootstrap (4.4)
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'react-bootstrap-wizard/dist/react-wizard.css';
 
 
 ReactDOM.render(

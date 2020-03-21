@@ -35,7 +35,6 @@ export default class AppointmentWizard extends React.Component {
               description={description}
               headerTextCenter
               validate
-              progressbar="false"
               color="primary"
               finishButtonClick={this.finishButtonClick}
               previousButtonText={prev}
