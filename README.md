@@ -55,6 +55,7 @@ You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with
 - Spring Boot Webflux
 - Spring Boot MongoDB
 - React
+    - react-bootstrap
 
 > Requirements: 
 
@@ -71,6 +72,16 @@ maven clean install
 
 Windows:
 mvnw clean install
+```
+
+> Frotend
+
+Go into `/src/fronted` and type:
+```text
+npm i
+
+To start the dev server:
+npm start
 ```
 
 
