@@ -18,6 +18,7 @@
 * [Solution](#-solution)
 * [General analysis of the problem](#-general-analysis-of-the-problem)
 * [Contact](#-contact)
+* [Project Setup](#-project-setup)
 * [Contributor](#-contributor)
 
 ## 🤯 Problem Statement
@@ -44,7 +45,36 @@ You can find this in our [Google Document](https://docs.google.com/document/d/1l
 > Drop us a line or write with us. Maybe ... help us?
 
 You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with us, or in [Discord](https://discord.gg/pVkYShn) (recommended).
- 
+
+## Project Setup
+
+Dependencies:
+
+- Spring Boot Webservices
+- Spring Boot Webflux
+- Spring Boot MongoDB
+- Reactor
+
+Requirements:
+
+Java SDK >= 1.8.x 
+
+Maven
+
+
+1. Clone this Github repo
+
+2. Run the Maven project in your IDE of choice or use
+
+```
+Linux:
+maven clean install
+
+Windows:
+mvnw clean install
+```
+
+
 ## 👍 Contributor
  > The devs behind the project
  - [Nils Kleinert](https://nilskleinert.de)
