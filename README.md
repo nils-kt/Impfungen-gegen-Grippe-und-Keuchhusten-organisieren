@@ -74,7 +74,7 @@ Windows:
 mvnw clean install
 ```
 
-> Frotend
+> Frontend
 
 Go into `/src/fronted` and type:
 ```text
