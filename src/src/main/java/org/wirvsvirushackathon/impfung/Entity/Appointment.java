@@ -5,7 +5,10 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.Data;
+
 @Document
+@Data
 public class Appointment {
 	
 	@Id
@@ -15,14 +18,5 @@ public class Appointment {
 	
 	public Appointment(LocalDateTime time) {
 		this.setTime(time);
-	}
-
-	public LocalDateTime getTime() {
-		return time;
-	}
-
-	public void setTime(LocalDateTime time) {
-		this.time = time;
-	}
-	
+	}	
 }
