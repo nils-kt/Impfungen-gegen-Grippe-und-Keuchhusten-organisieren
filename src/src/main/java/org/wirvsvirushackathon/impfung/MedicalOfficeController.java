@@ -1,6 +1,6 @@
 package org.wirvsvirushackathon.impfung;
 
-public class MedicalPracticeController {
+public class MedicalOfficeController {
 
 	
 }
