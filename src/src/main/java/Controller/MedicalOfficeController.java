@@ -1,4 +1,4 @@
-package org.wirvsvirushackathon.impfung;
+package Controller;
 
 public class MedicalOfficeController {
 

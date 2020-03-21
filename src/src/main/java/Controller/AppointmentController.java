@@ -1,4 +1,4 @@
-package org.wirvsvirushackathon.impfung;
+package Controller;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 import org.wirvsvirushackathon.impfung.Entity.Appointment;
+
+import Repository.AppointmentRepository;
 
 @RestController
 public class AppointmentController {
@@ -29,7 +31,7 @@ public class AppointmentController {
 
 		ModelAndView modelAndView = new ModelAndView("appointmentEntries");
 		modelAndView.addObject("title", "Appointment");
-		modelAndView.addObject("appointmentEntries", appointmentRepository.findAll()); // Alle Einträge im Repository zurückgeben.
+		modelAndView.addObject("appointmentEntries", appointmentRepository.findAll());
 
 		return modelAndView;
 	}

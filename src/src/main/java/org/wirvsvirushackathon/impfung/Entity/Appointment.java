@@ -17,6 +17,6 @@ public class Appointment {
 	private String description;
 	
 	public Appointment(LocalDateTime time) {
-		this.setTime(time);
+		this.time =time;
 	}	
 }

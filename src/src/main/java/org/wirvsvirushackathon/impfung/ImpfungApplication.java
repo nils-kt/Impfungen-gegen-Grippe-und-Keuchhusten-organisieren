@@ -1,14 +1,13 @@
 package org.wirvsvirushackathon.impfung;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import static org.springframework.boot.SpringApplication.run;
 
-import static org.springframework.boot.SpringApplication.*;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ImpfungApplication {
-
+	
 	public static void main(String[] args) {
 		run(ImpfungApplication.class, args);
 	}
-
 }
