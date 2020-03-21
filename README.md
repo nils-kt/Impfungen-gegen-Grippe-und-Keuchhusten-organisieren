@@ -46,7 +46,7 @@ You can find this in our [Google Document](https://docs.google.com/document/d/1l
 
 You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with us, or in [Discord](https://discord.gg/pVkYShn) (recommended).
 
-## Project Setup
+## 🔧 Project Setup
 
 Dependencies:
 
