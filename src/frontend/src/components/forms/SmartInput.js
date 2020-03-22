@@ -18,9 +18,7 @@ export default props => {
         onChange={props.onChange}
         onBlur={props.onBlur}
         onKeyUp={props.onKeyup}
-        onKeyPress={props.onKeypress}>
-          {props.children}
-        </Input>
+        onKeyPress={props.onKeypress}/>
     </FormGroup>
   );
 };
