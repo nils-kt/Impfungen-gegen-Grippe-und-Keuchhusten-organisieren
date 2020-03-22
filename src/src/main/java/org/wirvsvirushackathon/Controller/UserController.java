@@ -1,10 +1,7 @@
 package org.wirvsvirushackathon.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.wirvsvirushackathon.impfung.Entity.User;
 import org.wirvsvirushackathon.impfung.Repository.AppointmentRepository;
 import org.wirvsvirushackathon.impfung.Repository.PostcodeRepository;
@@ -26,6 +23,7 @@ public class UserController {
 
 	// Get the inputs from the user (from the UI).
 	// Create the current user via the inputs (postcode, name etc.).
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/postUserData", method = RequestMethod.POST)
 	public String handleUserInput(@RequestBody User requestUser) {
 		currentUser = requestUser;
