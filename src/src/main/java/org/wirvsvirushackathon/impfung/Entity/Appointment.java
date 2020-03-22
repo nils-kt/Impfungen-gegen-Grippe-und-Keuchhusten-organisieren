@@ -6,17 +6,17 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 @Document
 @Data
+@RequiredArgsConstructor
 public class Appointment {
 	
 	@Id
 	private String id;
+	@NonNull
 	private LocalDateTime time;
 	private String description;
-	
-	public Appointment(LocalDateTime time) {
-		this.time =time;
-	}	
 }
