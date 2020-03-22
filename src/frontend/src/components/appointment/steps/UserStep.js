@@ -9,17 +9,16 @@ export class UserStep extends React.Component {
     super(props);
     this.state = {
       askForPregnancy: false,
-      firstname: ''
+      firstname: 'cvbnm'
     };
-  
+    
     /**
-     * Get current year, eg. 2020.
-     */
+	 * Get current year, eg. 2020.
+	 */
     this.year = new Date().getFullYear();
     /**
-     * Configuration props for the
-     * form elements.
-     */
+	 * Configuration props for the form elements.
+	 */
     this.conf = {
       minYear: 1925,
       maxYear: this.year,
@@ -38,20 +37,25 @@ export class UserStep extends React.Component {
   }
 
   /**
-   * Gets called on gender change.
-   * Checks whether selected gender
-   * can be pregnant and asks for it.
-   * @param {Event}
-   */
+	 * Gets called on gender change. Checks whether selected gender can be
+	 * pregnant and asks for it.
+	 * 
+	 * @param {Event}
+	 */
   onGenderChange = ({ target: { value: gender }}) => {
     const { canPregnant } = this.conf;
     const askForPregnancy = canPregnant.includes(gender);
     this.setState({ askForPregnancy });
   }
 
-  onBlur = (e) => {
-	  this.props.
-	  this.setState({firstname: e.target.value});
+// onBlur = (e) => {
+// this.setState({firstname: e.target.value});
+// console.log(this.state.firstname);
+// }
+  
+  onBlur = async e  => {
+	  e.preventDefault();
+	  await this.setState({ [e.target.name]: e.target.value });
 	  console.log(this.state.firstname);
   }
   
@@ -60,7 +64,8 @@ export class UserStep extends React.Component {
       <div>
         <p>Ihre Persönlichen Daten:</p>
         <Form>
-          <SmartInput 
+          <SmartInput
+            name="firstname"
             type="text" 
             for="firstname" 
             as="Vorname" 
