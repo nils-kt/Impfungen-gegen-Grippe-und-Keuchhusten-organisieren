@@ -42,6 +42,7 @@ export default class AppointmentWizard extends React.Component {
               previousButtonText={prev}
               nextButtonText={next}
               finishButtonText={submit}
+              finishButtonClasses="btn-info"
             />
           </Col>
         </Row>
