@@ -13,6 +13,8 @@ import {
   Card
 } from 'reactstrap';
 import {EventEmitter} from 'events';
+import Progress from 'reactstrap/lib/Progress';
+import $ from 'jquery';
 
 export default class QuestionCards {
   constructor() {
@@ -20,6 +22,7 @@ export default class QuestionCards {
     this.questionsAnswers = [];
     this.questionIndex = 0;
     this.events = new EventEmitter();
+    this.isReady = false;
   }
 
   getEvents() {
@@ -42,15 +45,25 @@ export default class QuestionCards {
     } else {
       this.questionsAnswers[index].answer = 2;
     }
+
+    this.updateProgressValue((this.questionIndex / this.getQuestionAmount()) * 100);
     this.getAllAnswers();
   }
 
   getAllAnswers() {
-    console.log(this.questionsAnswers);
+    return this.questionsAnswers;
   }
 
   getQuestionAmount() {
     return this.questions.length;
+  }
+
+  updateProgressValue(value) {
+    $('.progress-bar:last').css('width', value + '%').attr('aria-valuenow', value).text(Math.round(value) + '%');
+  }
+
+  isValidated() {
+    return this.isReady;
   }
 
   renderCards() {
@@ -58,28 +71,37 @@ export default class QuestionCards {
       <Container fluid style={{marginTop: "15px", marginBottom: "15px"}}>
         <Row>
           <Col xs={12} md={12} className="mr-auto ml-auto">
-            {this.questions.map((question, _idx) =>
-              <Card id={"question_" + _idx}>
-                <CardHeader>
-                  <CardTitle>{question.question}</CardTitle>
-                </CardHeader>
-                {question.note &&
-                <CardBody className="alert-info">
-                  <p dangerouslySetInnerHTML={{__html: question.note}}></p>
-                </CardBody>
-                }
-                <CardFooter>
-                  <ButtonToolbar>
-                    <ButtonGroup>
-                      {question.answers.map((question, idx) =>
-                        <Button type="button"
-                                onClick={() => this.performAnswer(_idx, question.text)}>{question.text}</Button>
-                      )}
-                    </ButtonGroup>
-                  </ButtonToolbar>
-                </CardFooter>
-              </Card>
-            )}
+            <Card>
+              <CardHeader><i className="fas fa-info-circle"></i> Bitte beantworten Sie die nachfolgenden
+                Fragen:</CardHeader>
+              <CardBody>
+                {this.questions.map((question, _idx) =>
+                  <Card id={"question_" + _idx}>
+                    <CardHeader>
+                      <CardTitle>{question.question}</CardTitle>
+                    </CardHeader>
+                    {question.note &&
+                    <CardBody className="alert-info">
+                      <p dangerouslySetInnerHTML={{__html: question.note}}></p>
+                    </CardBody>
+                    }
+                    <CardFooter>
+                      <ButtonToolbar>
+                        <ButtonGroup>
+                          {question.answers.map((question) =>
+                            <Button type="button"
+                                    onClick={() => this.performAnswer(_idx, question.text)}>{question.text}</Button>
+                          )}
+                        </ButtonGroup>
+                      </ButtonToolbar>
+                    </CardFooter>
+                  </Card>
+                )}
+              </CardBody>
+              <CardFooter>
+                <Progress animated color="info" value={0}>0%</Progress>
+              </CardFooter>
+            </Card>
           </Col>
         </Row>
       </Container>

@@ -1,5 +1,4 @@
 import React from 'react';
-import {Form} from 'reactstrap';
 import QuestionCards from 'components/cards/QuestionCards';
 import $ from 'jquery';
 
@@ -8,7 +7,6 @@ export class SurveyStep extends React.Component {
     super(props);
     this.state = {};
     this.questions = new QuestionCards();
-    this.validated = false;
     /**
      * Configuration props for the
      * form elements.
@@ -36,13 +34,13 @@ export class SurveyStep extends React.Component {
 
     /* Event listener */
     this.questions.getEvents().on('performAnswer', (result) => {
-      console.log(result);
+      if (result.newIndex === this.questions.getQuestionAmount()) {
+        $("#questionCards").hide();
+        $("#finished").show();
+        this.questions.isReady = true;
+      }
       this.renderQuestion(result.newIndex);
     });
-  }
-
-  isValidated() {
-    return this.validated;
   }
 
   renderQuestion(index) {
@@ -57,15 +55,19 @@ export class SurveyStep extends React.Component {
   render() {
     return (
       <div>
-        <p>Bitte beantworten Sie die nachfolgenden Fragen:</p>
-        <Form>
+        <div className="alert alert-success" id="finished">
+          <strong>Geschafft!</strong> Sie können jetzt einen Termin beantragen.<br/>Klicken Sie dazu unten auf den
+          Button "Termin beantragen".
+        </div>
+        <div id="questionCards">
           {this.questions.renderCards()}
-        </Form>
+        </div>
       </div>);
   }
 
   componentDidMount() {
-    {this.renderQuestion(0)}
+    $("#finished").hide();
+    this.renderQuestion(0);
   }
 }
 
