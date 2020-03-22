@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export class WelcomeStep extends React.Component {
