@@ -13,7 +13,12 @@ export default props => {
       <Input 
         type={props.type || 'text'} 
         name={props.name || props.for} 
-        id={props.id || props.for}>
+        id={props.id || props.for}
+        onClick={props.onClick}
+        onChange={props.onChange}
+        onBlur={props.onBlur}
+        onKeyUp={props.onKeyup}
+        onKeyPress={props.onKeypress}>
           {props.children}
         </Input>
     </FormGroup>
