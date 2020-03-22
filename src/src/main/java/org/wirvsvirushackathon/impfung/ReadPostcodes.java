@@ -7,6 +7,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.expression.ParseException;
 import org.wirvsvirushackathon.impfung.Entity.Postcode;
 import org.wirvsvirushackathon.impfung.Repository.PostcodeRepository;

@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @SpringBootApplication
 @EnableMongoRepositories("org.wirvsvirushackathon.impfung.Repository")
 @ComponentScan(basePackageClasses = org.wirvsvirushackathon.Controller.AppointmentController.class)
+@ComponentScan(basePackageClasses = org.wirvsvirushackathon.impfung.ReadPostcodes.class)
 public class ImpfungApplication {
 	
 	public static void main(String[] args) {
