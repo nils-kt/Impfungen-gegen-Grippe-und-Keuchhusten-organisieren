@@ -1,3 +1,23 @@
+
+body {
+    background: url(/bg2.jpg);
+    background-size: cover;
+}
+
+.wizard-container {
+    opacity: 0.94;
+}
+
+.wizard-container .card {
+    border: 0;
+}
+.wizard-container [data-background-color="primary"] {
+    background-color: rgba(14, 17, 39, 0.71);
+}
+.wizard-container [data-background-color="primary"] .moving-tab {
+    color: black;
+}
+
 .questionBorder, blockquote {
     background-color: #DDDDDD;
     width: 100%;
