@@ -1,4 +1,4 @@
-package Repository;
+package org.wirvsvirushackathon.impfung.Repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.wirvsvirushackathon.impfung.Entity.Postcode;
