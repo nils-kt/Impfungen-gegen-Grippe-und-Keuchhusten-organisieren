@@ -7,9 +7,8 @@ const lower = str => str.toLowerCase();
  * to be overriden on duplicate keys.
  */
 const defaultChoices = {
-  yes: 'Yes',
-  no: 'No',
-  maybe: 'Maybe'
+  yes: 'Ja',
+  no: 'Nein'
 };
 
 /**
@@ -42,8 +41,8 @@ export default props => {
   const { condition, name } = props;
   const choices = mapPropsToChoices(props);
   return (
-    <div>
-      {condition}
+    <div className="questionBorderTop">
+      <span className="questionBorder">{condition}</span>
       {choices.map((choice, idx) => 
         <FormGroup key={idx} check>
           <Label check>

@@ -26,7 +26,7 @@ export default class AppointmentWizard extends React.Component {
 
   render() {
     return (
-      <Container fluid style={{ marginTop: "15px" }}>
+      <Container fluid style={{ marginTop: "15px", marginBottom: "15px"}}>
         <Row>
           <Col xs={12} md={6} className="mr-auto ml-auto">
             <ReactWizard

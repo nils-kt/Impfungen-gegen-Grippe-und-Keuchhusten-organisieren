@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 // React Bootstrap (4.4)
 import 'bootstrap/dist/css/bootstrap.css';
 import 'react-bootstrap-wizard-customized/dist/react-wizard.css';
+import 'resources/css/style.css';
 
 
 ReactDOM.render(
