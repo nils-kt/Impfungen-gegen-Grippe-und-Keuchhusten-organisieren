@@ -25,7 +25,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
 /**
- * Read the postcodes and find other postcodes near to the entered postcode.
+ * @TODO: Read the postcodes and find other postcodes near to the entered postcode.
  */
 @Configuration
 @EnableAsync
@@ -36,13 +36,10 @@ public class ReadPostcodes {
 
     @PostConstruct
     @Async
-    private void loadPostodes() throws JsonSyntaxException, InterruptedException, ExecutionException {
+	void loadPostodes() throws JsonSyntaxException, InterruptedException, ExecutionException {
         int[] plzDummy = new int[]{38524, 38100, 38102, 38110, 38111, 27894};
         AsyncHttpClient asyncHttpClient = asyncHttpClient();
         for (int plz : plzDummy) {
-            System.out.println("1");
-
-            // HttpHeaders headers = new HttpHeaders();
             HttpHeaders headers = new HttpHeaders();
             headers.add("User-Agent",
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36");
@@ -65,7 +62,6 @@ public class ReadPostcodes {
                         postcode.setLongitude(Double.parseDouble(_response.getAsJsonObject().get("lon").getAsString().trim()));
                         postcode.setPostcode(Integer.parseInt(address.get("postcode").getAsString().trim()));
                         postcode.setState(address.get("state").getAsString().trim());
-
                         postcodeRepository.save(postcode);
                     }
                 }
