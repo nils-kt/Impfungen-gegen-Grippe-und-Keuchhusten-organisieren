@@ -74,11 +74,10 @@ export class StateValidator extends React.Component {
   /**
    * Sets state and validates it.
    * Helper method.
-	 * 
-	 * @param {String} prop - The state prop
-	 * @param {any} value - The value
+   * @param {String} prop - The state prop
+   * @param {any} value - The value
    * @async
-	 */
+   */
   setStateValidate = async (prop, value) => {
     await this.setState({ [prop]: value })
     await this.validateState(prop)

@@ -91,11 +91,10 @@ export class UserStep extends StateValidator {
     return !invalid;
   }
   /**
-	 * onChange event handler.
-	 * 
-	 * @param {Event}
+   * onChange event handler.
+   * @param {Event}
    * @async
-	 */
+   */
   onChange = async ({ target: { name, value }}) => {
     /** Handle UI state for pregnancy element. */
     const { canPregnant } = this.conf;
@@ -105,17 +104,15 @@ export class UserStep extends StateValidator {
     this.setStateValidate(name, value)
   }
   /**
-	 * onBlur event handler.
-	 * 
-	 * @param {Event}
-	 */
+   * onBlur event handler.
+   * @param {Event}
+   */
   onBlur = ({ target: { name, value }}) =>
     this.setStateValidate(name, value);
   /**
-	 * onClick event handler.
-	 * 
-	 * @param {Event}
-	 */
+   * onClick event handler.
+   * @param {Event}
+   */
   onClick = ({ target: { name, value }}) =>
     this.setStateValidate(name, value);
   /**
