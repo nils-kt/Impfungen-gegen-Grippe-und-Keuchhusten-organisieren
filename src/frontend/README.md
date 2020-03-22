@@ -58,3 +58,16 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/ad
 ### Deployment
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+---
+
+## 👍 Contributor
+ > The devs behind the project
+ - [Nils Kleinert](https://nilskleinert.de)
+ - [Steven Agyekum](https://github.com/Burnett01)
+ - [Stephan Tönnies](https://github.com/StephanToennies)
+ - [Yannick Radke](https://github.com/YK18415) 
+
+## ❤ Special thanks to
+ - [Chris Smith](https://github.com/temar96) ([Helping with the wizards User step-validation](https://github.com/nils-kt/Impfungen-gegen-Grippe-und-Keuchhusten-organisieren/blob/e3732fdd52297230226c1f9e899992339c3035d9/src/frontend/src/components/appointment/steps/UserStep.js#L84))
+ - [Josh Piper](https://github.com/JoshPiper) ([Helping with the wizards User step-validation](https://github.com/nils-kt/Impfungen-gegen-Grippe-und-Keuchhusten-organisieren/blob/e3732fdd52297230226c1f9e899992339c3035d9/src/frontend/src/components/appointment/steps/UserStep.js#L84))
