@@ -126,9 +126,9 @@ export class UserStep extends React.Component {
                   <RadioChoice
                     name="pregnancy"
                     condition="Sind Sie schwanger?"
-                    yes="Ja"
-                    no="Nein"
-                    maybe="Weiß nicht" /> }
+                    choiceYes="Ja"
+                    choiceNo="Nein"
+                    choiceMaybe="Weiß nicht" /> }
               </Col>
             </Row>
           </FormGroup>
