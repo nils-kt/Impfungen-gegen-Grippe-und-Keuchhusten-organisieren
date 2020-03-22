@@ -56,7 +56,7 @@ export class StateValidator extends React.Component {
     ] = []
   
     if (notIf && notIf.filter(({field, value}) => {
-      return state[field] == value}).length) return true
+      return state[field] === value}).length) return true
     if (len) isValid = value.length === len
     if (minLen) isValid = validMinLen = value.length >= minLen
     if (maxLen) isValid = validMaxLen = value.length <= maxLen
@@ -67,8 +67,9 @@ export class StateValidator extends React.Component {
     if (regex) isValid = regex.test(value)
     if (has) isValid = has.includes(value)
 
-    this.state.validated[prop] = isValid
-    this.setState({ validated: this.state.validated })
+    const validated = this.state.validated
+    validated[prop] = isValid
+    this.setState({ validated })
     return isValid
   }
   /**
