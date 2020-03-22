@@ -1,19 +1,45 @@
 package org.wirvsvirushackathon.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.wirvsvirushackathon.impfung.Entity.User;
 import org.wirvsvirushackathon.impfung.Repository.AppointmentRepository;
+import org.wirvsvirushackathon.impfung.Repository.PostcodeRepository;
+import org.wirvsvirushackathon.impfung.Repository.UserRepository;
 
 @RestController
 public class UserController {
 
+	User currentUser;
+	
 	@Autowired
 	AppointmentRepository appointmentRepository;
 
-	//TODO
-	//Get the inputs from the user (from the UI).
+	@Autowired
+	UserRepository userRepository;
 	
-	//Create the current user via the inputs (postcode, name etc.).
+	@Autowired
+	PostcodeRepository postcodeRepository;
+
+	// Get the inputs from the user (from the UI).
+	// Create the current user via the inputs (postcode, name etc.).
+	@RequestMapping(value = "/postUserData", method = RequestMethod.POST)
+	public void handleUserInput(@RequestBody User requestUser) {
+		currentUser = requestUser;
+		
+		System.out.println(requestUser);
+		userRepository.save(requestUser);
+		
+		calculate();
+	}
 	
-	//Read the postcodes and find other postcodes near to the entered postcode.
+	private void calculate() {
+
+		//Load postcodes from database:
+		//List<Postcode> postcodeList = postcodeRepository.findAll();
+	}
+	
 }

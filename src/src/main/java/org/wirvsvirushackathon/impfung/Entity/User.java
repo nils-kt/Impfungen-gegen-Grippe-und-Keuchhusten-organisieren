@@ -22,7 +22,8 @@ public class User {
 	private String lastname;
 	private String gender;
 	private LocalDate dateOfBirth;
-	private boolean wasTreveling;
+	private int postcode;
+	private boolean wasTraveling;
 	private boolean isPresick;
 	private boolean isKO;
 	private boolean hasLimpPain;
@@ -45,5 +46,4 @@ public class User {
 	private Adiposity adiposity;
 	
 	private Appointment appointment;
-	private Postcode postcode;
 }

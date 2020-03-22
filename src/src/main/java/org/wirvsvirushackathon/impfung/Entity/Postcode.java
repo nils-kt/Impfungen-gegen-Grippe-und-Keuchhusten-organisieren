@@ -1,11 +1,12 @@
 package org.wirvsvirushackathon.impfung.Entity;
 
-import com.google.gson.JsonElement;
-import com.mongodb.lang.NonNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.mongodb.lang.NonNull;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Document
@@ -15,15 +16,17 @@ public class Postcode {
 	@Id
 	private String id;
 	@NonNull
-	private JsonElement postcode;
+	private int postcode;
 	@NonNull
-	private JsonElement cityname;
+	private String cityname;
 	@NonNull
-	private JsonElement state;
+	private String citydistrict;
 	@NonNull
-	private JsonElement district;
+	private String country;
 	@NonNull
-	private JsonElement latitude;
+	private String state;
 	@NonNull
-	private JsonElement longitude;
+	private double latitude;
+	@NonNull
+	private double longitude;
 }

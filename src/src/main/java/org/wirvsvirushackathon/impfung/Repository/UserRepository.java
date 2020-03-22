@@ -5,7 +5,6 @@ import org.wirvsvirushackathon.impfung.Entity.User;
 
 /**
  * Hier findet der Zugriff auf die Datenbank statt.
- *
  */
 public interface UserRepository extends MongoRepository<User, String> {
 
