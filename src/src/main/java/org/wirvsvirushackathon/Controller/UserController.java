@@ -38,6 +38,8 @@ public class UserController {
 	
 	private void calculate() {
 
+		//TODO: Check, if postcode is in database.
+		
 		//Load postcodes from database:
 		//List<Postcode> postcodeList = postcodeRepository.findAll();
 	}
