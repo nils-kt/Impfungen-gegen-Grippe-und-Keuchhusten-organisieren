@@ -31,49 +31,47 @@ import com.google.gson.JsonSyntaxException;
 @EnableAsync
 public class ReadPostcodes {
 
-	@Autowired
-	PostcodeRepository postcodeRepository;
+    @Autowired
+    PostcodeRepository postcodeRepository;
 
-	@PostConstruct
-	@Async
-	private void loadPostodes() throws JsonSyntaxException, InterruptedException, ExecutionException {
-		int[] plzDummy = new int[] { 38524, 38100, 38102, 38110, 38111, 27894 };
-		AsyncHttpClient asyncHttpClient = asyncHttpClient();
-		for (int plz : plzDummy) {
-			System.out.println("1");
+    @PostConstruct
+    @Async
+    private void loadPostodes() throws JsonSyntaxException, InterruptedException, ExecutionException {
+        int[] plzDummy = new int[]{38524, 38100, 38102, 38110, 38111, 27894};
+        AsyncHttpClient asyncHttpClient = asyncHttpClient();
+        for (int plz : plzDummy) {
+            System.out.println("1");
 
-			// HttpHeaders headers = new HttpHeaders();
-			HttpHeaders headers = new HttpHeaders();
-			headers.add("User-Agent",
-					"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36");
-			Request request = asyncHttpClient.prepareGet(
-					"https://nominatim.openstreetmap.org/search?q=" + plz + "&format=json&polygon=1&addressdetails=1")
-					.setHeaders(headers).build();// ("https://nominatim.openstreetmap.org/search?q=" + plz +
-													// "Germany&format=json&polygon=1&addressdetails=1").build();
-			Future<Response> whenResponse = asyncHttpClient.executeRequest(request);
-			while (true) {
-				if (whenResponse.isDone()) {
-					// Parse response to json
-					JsonArray response = new JsonParser().parse(whenResponse.get().getResponseBody()).getAsJsonArray();
-					for (JsonElement _response : response) {
-						//System.out.println(_response.getAsJsonObject().get("address").getAsJsonObject().toString());
-						JsonObject address = _response.getAsJsonObject().get("address").getAsJsonObject();
-						
-						Postcode postcode = new Postcode();
-						postcode.setCitydistrict(address.get("county").getAsString().trim());
-						postcode.setCityname(address.get("village").getAsString().trim());
-						postcode.setCountry(address.get("country_code").getAsString().trim());
-						postcode.setLatitude(Double.parseDouble(_response.getAsJsonObject().get("lat").getAsString().trim()));
-						postcode.setLongitude(Double.parseDouble(_response.getAsJsonObject().get("lon").getAsString().trim()));
-						postcode.setPostcode(Integer.parseInt(address.get("postcode").getAsString().trim()));
-						postcode.setState(address.get("state").getAsString().trim());
+            // HttpHeaders headers = new HttpHeaders();
+            HttpHeaders headers = new HttpHeaders();
+            headers.add("User-Agent",
+                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36");
+            Request request = asyncHttpClient.prepareGet(
+                    "https://nominatim.openstreetmap.org/search?q=" + plz + "&format=json&polygon=1&addressdetails=1")
+                    .setHeaders(headers).build();
+            Future<Response> whenResponse = asyncHttpClient.executeRequest(request);
+            while (true) {
+                if (whenResponse.isDone()) {
+                    // Parse response to json
+                    JsonArray response = new JsonParser().parse(whenResponse.get().getResponseBody()).getAsJsonArray();
+                    for (JsonElement _response : response) {
+                        JsonObject address = _response.getAsJsonObject().get("address").getAsJsonObject();
 
-						postcodeRepository.save(postcode);
-					}
-				}
-				Thread.sleep(100);
-			}
-		}
+                        Postcode postcode = new Postcode();
+                        postcode.setCitydistrict(address.get("county").getAsString().trim());
+                        postcode.setCityname(address.get("village").getAsString().trim());
+                        postcode.setCountry(address.get("country_code").getAsString().trim());
+                        postcode.setLatitude(Double.parseDouble(_response.getAsJsonObject().get("lat").getAsString().trim()));
+                        postcode.setLongitude(Double.parseDouble(_response.getAsJsonObject().get("lon").getAsString().trim()));
+                        postcode.setPostcode(Integer.parseInt(address.get("postcode").getAsString().trim()));
+                        postcode.setState(address.get("state").getAsString().trim());
 
-	}
+                        postcodeRepository.save(postcode);
+                    }
+                }
+                Thread.sleep(100);
+            }
+        }
+
+    }
 }
