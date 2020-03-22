@@ -76,7 +76,7 @@ export default class QuestionCards {
                 Fragen:</CardHeader>
               <CardBody>
                 {this.questions.map((question, _idx) =>
-                  <Card id={"question_" + _idx}>
+                  <Card key={_idx} id={"question_" + _idx}>
                     <CardHeader>
                       <CardTitle>{question.question}</CardTitle>
                     </CardHeader>
@@ -88,9 +88,9 @@ export default class QuestionCards {
                     <CardFooter>
                       <ButtonToolbar>
                         <ButtonGroup>
-                          {question.answers.map((question) =>
-                            <Button type="button"
-                                    onClick={() => this.performAnswer(_idx, question.text)}>{question.text}</Button>
+                          {question.answers.map((answer, adx) =>
+                            <Button type="button" key={adx}
+                                    onClick={() => this.performAnswer(_idx, answer.text)}>{answer.text}</Button>
                           )}
                         </ButtonGroup>
                       </ButtonToolbar>
