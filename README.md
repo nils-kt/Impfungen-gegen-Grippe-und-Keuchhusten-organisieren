@@ -55,15 +55,14 @@ You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with
 - Spring Boot Webflux
 - Spring Boot MongoDB
 - React
-    - react-bootstrap
+    - reactstrap
 
 > Requirements: 
 
  - Java SDK 1.8.x
  - Node.js
  - NPM
-
-> Maven
+- Maven
 
 1. Clone this Github repo
 2. Run the Maven project in your IDE of choice or use
@@ -93,3 +92,7 @@ npm start
  - [Steven Agyekum](https://github.com/Burnett01)
  - [Stephan Tönnies](https://github.com/StephanToennies)
  - [Yannick Radke](https://github.com/YK18415) 
+
+## ❤ Special thanks to
+ - [Chris Smith](https://github.com/temar96) ([Helping with the wizards User step-validation](https://github.com/nils-kt/Impfungen-gegen-Grippe-und-Keuchhusten-organisieren/blob/e3732fdd52297230226c1f9e899992339c3035d9/src/frontend/src/components/appointment/steps/UserStep.js#L84))
+ - [Josh Piper](https://github.com/JoshPiper) ([Helping with the wizards User step-validation](https://github.com/nils-kt/Impfungen-gegen-Grippe-und-Keuchhusten-organisieren/blob/e3732fdd52297230226c1f9e899992339c3035d9/src/frontend/src/components/appointment/steps/UserStep.js#L84))
