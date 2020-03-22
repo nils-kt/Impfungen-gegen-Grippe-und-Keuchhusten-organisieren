@@ -2,7 +2,7 @@
 <!-- LOGO -->
 <br />
 <p align="center">
-    <img src="https://i.imgur.com/irYu4mI.png" alt="Logo" height="200">
+    <img src="https://i.imgur.com/Y8mU04P.png" alt="Logo" height="200">
   <h3 align="center">Organise vaccinations against influenza and whooping cough</h3>
   <h6 align="center">Impfungen gegen Grippe und Keuchhusten organisieren</h6>
 
