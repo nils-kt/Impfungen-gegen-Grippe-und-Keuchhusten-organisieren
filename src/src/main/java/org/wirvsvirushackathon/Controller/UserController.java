@@ -27,13 +27,14 @@ public class UserController {
 	// Get the inputs from the user (from the UI).
 	// Create the current user via the inputs (postcode, name etc.).
 	@RequestMapping(value = "/postUserData", method = RequestMethod.POST)
-	public void handleUserInput(@RequestBody User requestUser) {
+	public String handleUserInput(@RequestBody User requestUser) {
 		currentUser = requestUser;
 		
 		System.out.println(requestUser);
 		userRepository.save(requestUser);
 		
 		calculate();
+		return "Okay!";
 	}
 	
 	private void calculate() {

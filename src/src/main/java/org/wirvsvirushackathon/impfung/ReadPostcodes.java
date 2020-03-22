@@ -47,13 +47,18 @@ public class ReadPostcodes {
                     "https://nominatim.openstreetmap.org/search?q=" + plz + "&format=json&polygon=1&addressdetails=1")
                     .setHeaders(headers).build();
             Future<Response> whenResponse = asyncHttpClient.executeRequest(request);
+            
+            boolean isDone = false;
+            
+            
             while (true) {
                 if (whenResponse.isDone()) {
                     // Parse response to json
                     JsonArray response = new JsonParser().parse(whenResponse.get().getResponseBody()).getAsJsonArray();
+                    int index = 0;
                     for (JsonElement _response : response) {
                         JsonObject address = _response.getAsJsonObject().get("address").getAsJsonObject();
-
+                        System.out.println("Size: " + response.size() + " - Index: " + index);
                         Postcode postcode = new Postcode();
                         postcode.setCitydistrict(address.get("county").getAsString().trim());
                         postcode.setCityname(address.get("village").getAsString().trim());
@@ -63,7 +68,13 @@ public class ReadPostcodes {
                         postcode.setPostcode(Integer.parseInt(address.get("postcode").getAsString().trim()));
                         postcode.setState(address.get("state").getAsString().trim());
                         postcodeRepository.save(postcode);
+                        if(index++ == response.size() -1){
+                            isDone = true;
+                        }
                     }
+                }
+                if(isDone) {
+                	return;
                 }
                 Thread.sleep(100);
             }
