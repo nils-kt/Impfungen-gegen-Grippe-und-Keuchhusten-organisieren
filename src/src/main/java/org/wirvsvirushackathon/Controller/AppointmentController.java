@@ -18,7 +18,7 @@ public class AppointmentController {
 	AppointmentRepository appointmentRepository;
 
 	private List<Appointment> listOfAppointments;
-	
+
 	private void addAppointment() {
 		Appointment appointmentEntry = new Appointment(LocalDateTime.now());
 		appointmentRepository.save(appointmentEntry);
@@ -30,10 +30,9 @@ public class AppointmentController {
 		for (int i = 0; i < 10; i++) {
 			addAppointment();
 		}
-		
+
 		listOfAppointments = appointmentRepository.findAll();
 		return listOfAppointments;
 	}
-
 
 }
