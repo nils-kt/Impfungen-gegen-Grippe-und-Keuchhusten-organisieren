@@ -53,8 +53,9 @@ export class UserStep extends React.Component {
 // console.log(this.state.firstname);
 // }
   
-  onBlur = (e)  => {
-	  this.setState({ [e.target.name]: e.target.value });
+  onBlur = async e  => {
+	  e.preventDefault();
+	  await this.setState({ [e.target.name]: e.target.value });
 	  console.log(this.state.firstname);
   }
   
