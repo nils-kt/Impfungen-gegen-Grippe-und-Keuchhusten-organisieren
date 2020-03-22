@@ -39,13 +39,13 @@ export class Api {
   /**
    * API wrapper for POST.
    * @param {String} path - The path
-   * @param {String} body - The payload 
+   * @param {String} body - The payload
    * @param {Object} opts - The options
    */
   post(path, body, opts) {
-    return this.request(path, { 
+    return this.request(path, {
       ...opts,
-      body,
+      ...body,
       method: 'POST'
     })
   }
