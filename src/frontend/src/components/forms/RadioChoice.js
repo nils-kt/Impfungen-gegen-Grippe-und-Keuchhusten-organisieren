@@ -34,19 +34,24 @@ const mapPropsToChoices = props => {
     const val = props[prop];
     choices = { ...choices, ...{[key]: val}};
   }
-  return Object.values(choices);
+  return Object.entries(choices);
 };
 
 export default props => {
-  const { condition, name } = props;
+  const { condition, name, onClick } = props;
   const choices = mapPropsToChoices(props);
+  
   return (
     <div className="questionBorderTop">
       <span className="questionBorder">{condition}</span>
       {choices.map((choice, idx) => 
         <FormGroup key={idx} check>
           <Label check>
-            <Input type="radio" name={name} /> {choice}
+            <Input 
+              type="radio" 
+              name={name} 
+              value={choice[0]}
+              onClick={onClick}/> {choice[1]}
           </Label>
         </FormGroup>)}
     </div>);
