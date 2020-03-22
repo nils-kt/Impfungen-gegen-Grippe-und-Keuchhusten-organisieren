@@ -8,8 +8,10 @@ export class UserStep extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      askForPregnancy: false
+      askForPregnancy: false,
+      firstname: ''
     };
+  
     /**
      * Get current year, eg. 2020.
      */
@@ -47,6 +49,12 @@ export class UserStep extends React.Component {
     this.setState({ askForPregnancy });
   }
 
+  onBlur = (e) => {
+	  this.props.
+	  this.setState({firstname: e.target.value});
+	  console.log(this.state.firstname);
+  }
+  
   render() {
     return (
       <div>
@@ -55,7 +63,8 @@ export class UserStep extends React.Component {
           <SmartInput 
             type="text" 
             for="firstname" 
-            as="Vorname" />
+            as="Vorname" 
+            onBlur={this.onBlur}/>
           <SmartInput 
             type="text" 
             for="lastname" 
