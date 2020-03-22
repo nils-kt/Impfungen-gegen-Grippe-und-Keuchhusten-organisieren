@@ -1,126 +1,184 @@
-
 import React from 'react';
-import { Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
+import { 
+  Form, 
+  FormGroup,
+  FormFeedback,
+  Label, 
+  Input, 
+  Row, 
+  Col 
+} from 'reactstrap';
 import RadioChoice from 'components/forms/RadioChoice';
-import SmartInput from 'components/forms/SmartInput';
+import { StateValidator } from 'components/StateValidator'
 
-export class UserStep extends React.Component {
+export class UserStep extends StateValidator {
   constructor(props) {
     super(props);
+    /**
+     * The component state.
+     */
     this.state = {
       askForPregnancy: false,
-      firstname: 'cvbnm'
+      firstname: '',
+      lastname: '',
+      gender: 'male',
+      dateofbirth: '',
+      postcode: '',
+      pregnancy: ''
     };
-    
     /**
-	 * Get current year, eg. 2020.
-	 */
+     * Get current year, eg. 2020.
+     */
     this.year = new Date().getFullYear();
     /**
-	 * Configuration props for the form elements.
-	 */
+     * Configuration props for the form elements.
+     */
     this.conf = {
-      minYear: 1925,
-      maxYear: this.year,
-      minMonth: 1,
-      maxMonth: 12,
-      minDay: 1,
-      maxDay: 31,
+      minStrLen: 4,
+      maxStrLen: 50,
       minPLZ: '00000',
       maxPLZ: '99999',
-      canPregnant: ['weiblich', 'divers']
+      canPregnant: ['female', 'diverse']
+    };
+    /**
+     * Rules setup for validation.
+     */
+    this.validationRules({
+      firstname: { 
+        minLen: this.conf.minStrLen,
+        maxLen: this.conf.maxStrLen,
+      },
+      lastname: { 
+        minLen: this.conf.minStrLen,
+        maxLen: this.conf.maxStrLen,
+      },
+      gender: { 
+        has: ['male', 'female', 'diverse'],
+      },
+      dateofbirth: {
+        regex: /^\d{4}-\d{2}-\d{2}$/
+      },
+      postcode: {
+        len: 5
+      },
+      pregnancy: {
+        notIf: [{ field: 'gender', value: 'male' }],
+        has: ['yes', 'no', 'maybe'],
+      },
+    })
+  }
+  /**
+   * UI-binding to JSX for visual validation.
+   */
+  validateUI = name => {
+    const state = this.state.validated[name];
+    return { 
+      invalid: (state != null && !state), 
+      valid: state
     };
   }
-  
-  isValidated() {
-    return true;
-  }
-
   /**
-	 * Gets called on gender change. Checks whether selected gender can be
-	 * pregnant and asks for it.
+   * Wizard method for checking if all
+   * validations have passed truthy.
+   */
+  isValidated() {
+    const props = this.state.validated;
+    let invalid = false;
+    for (const prop in props) {
+      if (this.validateState(prop)) continue;
+      invalid = true;
+    }
+    return !invalid;
+  }
+  /**
+	 * onChange event handler.
+	 * 
+	 * @param {Event}
+   * @async
+	 */
+  onChange = async ({ target: { name, value }}) => {
+    /** Handle UI state for pregnancy element. */
+    const { canPregnant } = this.conf;
+    const askForPregnancy = canPregnant.includes(value);
+    await this.setState({ askForPregnancy });
+    /** Set regular state */
+    this.setStateValidate(name, value)
+  }
+  /**
+	 * onBlur event handler.
 	 * 
 	 * @param {Event}
 	 */
-  onGenderChange = ({ target: { value: gender }}) => {
-    const { canPregnant } = this.conf;
-    const askForPregnancy = canPregnant.includes(gender);
-    this.setState({ askForPregnancy });
-  }
-
-// onBlur = (e) => {
-// this.setState({firstname: e.target.value});
-// console.log(this.state.firstname);
-// }
-  
-  onBlur = async e  => {
-	  e.preventDefault();
-	  await this.setState({ [e.target.name]: e.target.value });
-	  console.log(this.state.firstname);
-  }
-  
+  onBlur = ({ target: { name, value }}) =>
+    this.setStateValidate(name, value);
+  /**
+	 * onClick event handler.
+	 * 
+	 * @param {Event}
+	 */
+  onClick = ({ target: { name, value }}) =>
+    this.setStateValidate(name, value);
+  /**
+   * Render method.
+   */
   render() {
     return (
       <div>
         <p>Ihre Persönlichen Daten:</p>
         <Form>
-          <SmartInput
-            name="firstname"
-            type="text" 
-            for="firstname" 
-            as="Vorname" 
-            onBlur={this.onBlur}/>
-          <SmartInput 
-            type="text" 
-            for="lastname" 
-            as="Nachname" />
+          <FormGroup>
+            <Label for="firstname">Vorname</Label>
+            <Input
+              type="text" 
+              onBlur={this.onBlur}
+              name="firstname"
+              id="firstname" 
+              {...this.validateUI('firstname')}
+              />
+              <FormFeedback>
+                Ein Text zwischen {this.conf.minStrLen} und {this.conf.maxStrLen} Zeichen
+              </FormFeedback>
+          </FormGroup>
+          <FormGroup>
+            <Label for="lastname">Nachname</Label>
+            <Input
+              type="text" 
+              onBlur={this.onBlur}
+              name="lastname"
+              id="lastname"
+              {...this.validateUI('lastname')}
+              />
+              <FormFeedback>
+                Ein Text zwischen {this.conf.minStrLen} und {this.conf.maxStrLen} Zeichen
+              </FormFeedback>
+          </FormGroup>
           <FormGroup>
             <Label for="gender">Geschlecht</Label>
             <Input 
               type="select" 
-              onChange={this.onGenderChange}
+              onChange={this.onChange}
               name="gender"
-              id="gender">
-              <option>männlich</option>
-              <option>weiblich</option>
-              <option>divers</option>
+              id="gender"
+              {...this.validateUI('gender')}>
+              <option value="male">männlich</option>
+              <option value="female">weiblich</option>
+              <option value="diverse">divers</option>
             </Input>
+            <FormFeedback>
+              Nur männlich, weiblich oder divers
+            </FormFeedback>
           </FormGroup>
           <FormGroup>
             <Label for="dateofbirth">Geburtsdatum</Label>
-            <Row>
-              <Col lg="2">
-                <Input 
-                  type="number" 
-                  min={this.conf.minDay}
-                  max={this.conf.maxDay}
-                  step="1" 
-                  placeholder="Tag"
-                  name="day" 
-                  id="day" />
-              </Col>
-              <Col lg="2">
-                <Input 
-                  type="number" 
-                  min={this.conf.minMonth}
-                  max={this.conf.maxMonth}
-                  step="1"
-                  placeholder="Monat"
-                  name="month" 
-                  id="month" />
-              </Col>
-              <Col lg="3">
-                <Input 
-                  type="number" 
-                  min={this.conf.minYear}
-                  max={this.conf.maxYear} 
-                  step="1"
-                  defaultValue={this.conf.maxYear}
-                  placeholder="Jahr"
-                  name="year" 
-                  id="year" />
-              </Col>
-            </Row>
+            <Input 
+              type="date" 
+              name="dateofbirth" 
+              id="dateofbirth"
+              onBlur={this.onBlur}
+              {...this.validateUI('dateofbirth')}/>
+              <FormFeedback>
+                Geburtsdatum muss im Format TT.MM.JJJJ sein
+              </FormFeedback>
           </FormGroup>
           <FormGroup>
             <Row>
@@ -133,16 +191,22 @@ export class UserStep extends React.Component {
                   step="1" 
                   placeholder="PLZ"
                   name="postcode" 
-                  id="postcode" />
+                  id="postcode"
+                  onBlur={this.onBlur}
+                  {...this.validateUI('postcode')}/>
+                  <FormFeedback>
+                    Eine Zahl zwischen {this.conf.minPLZ} und {this.conf.maxPLZ}
+                  </FormFeedback>
               </Col>
               <Col lg="5">
                 { this.state.askForPregnancy && 
                   <RadioChoice
-                    name="pregnancy"
                     condition="Sind Sie schwanger?"
                     choiceYes="Ja"
                     choiceNo="Nein"
-                    choiceMaybe="Weiß nicht" /> }
+                    choiceMaybe="Weiß nicht"
+                    name="pregnancy"
+                    onClick={this.onClick}/>}
               </Col>
             </Row>
           </FormGroup>
