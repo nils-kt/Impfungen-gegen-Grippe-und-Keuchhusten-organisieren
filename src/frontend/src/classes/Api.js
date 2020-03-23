@@ -43,10 +43,13 @@ export class Api {
    * @param {Object} opts - The options
    */
   post(path, body, opts) {
+    opts = opts || {}
+    opts.headers = opts.headers || {}
+    opts.headers['Content-Type'] = 'application/json'
     return this.request(path, {
       ...opts,
-      ...body,
-      method: 'POST'
+      'body': JSON.stringify(body),
+      'method': 'POST'
     })
   }
 }
