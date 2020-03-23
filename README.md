@@ -47,6 +47,9 @@ You can find this in our [Google Document](https://docs.google.com/document/d/1l
 
 You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with us, or in [Discord](https://discord.gg/pVkYShn) (recommended).
 
+## 🤩 Result
+<img src="https://cdn.discordapp.com/attachments/691016855451730041/691450365446717461/nJ2pP5tEMv.gif" />
+
 ## 🔧 Project Setup
 
 > Dependencies:
@@ -96,3 +99,4 @@ npm start
 ## ❤ Special thanks to
  - [Chris Smith](https://github.com/temar96) ([Helping with the wizards User step-validation](https://github.com/nils-kt/Impfungen-gegen-Grippe-und-Keuchhusten-organisieren/blob/e3732fdd52297230226c1f9e899992339c3035d9/src/frontend/src/components/appointment/steps/UserStep.js#L84))
  - [Josh Piper](https://github.com/JoshPiper) ([Helping with the wizards User step-validation](https://github.com/nils-kt/Impfungen-gegen-Grippe-und-Keuchhusten-organisieren/blob/e3732fdd52297230226c1f9e899992339c3035d9/src/frontend/src/components/appointment/steps/UserStep.js#L84))
+
