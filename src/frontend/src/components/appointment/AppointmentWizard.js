@@ -1,6 +1,17 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
 import ReactWizard from 'react-bootstrap-wizard-customized';
+import { api } from 'services/api'
+import { 
+  Container, 
+  Row, 
+  Col, 
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button, 
+  Alert 
+} from 'reactstrap';
 
 import WelcomeStep from './steps/WelcomeStep';
 import UserStep from './steps/UserStep';
@@ -20,8 +31,26 @@ const next = 'Weiter';
 const submit = 'Termin beantragen';
 
 export default class AppointmentWizard extends React.Component {
-  finishButtonClick(allStates) {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      success: false,
+      error: false
+    }
+  }
+
+  finishButtonClick = async allStates => {
     console.log(allStates);
+    const { 
+      askForPregnancy, 
+      validated, 
+      ...data } 
+      = allStates['Persönliche Daten'];
+      
+    const [status, res] = await api.post('/postUserData', data);
+    if (status) this.setState({ success: true });
+    else this.setState({ error: true });
   }
 
   render() {
@@ -46,6 +75,36 @@ export default class AppointmentWizard extends React.Component {
             />
           </Col>
         </Row>
+        <Modal isOpen={this.state.success}>
+          <ModalHeader>Vielen Dank!</ModalHeader>
+          <ModalBody>
+            Ihren Daten wurde erfolgreich an uns übertragen...<br />
+
+            <Alert color="info">
+              ... hier würden Sie dann eine Auswertung Ihrer Eingaben sehen.
+            </Alert>
+
+            Demo Ende! 
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={()=>this.setState({success:false})}>Schließen</Button>
+          </ModalFooter>
+        </Modal>
+        <Modal isOpen={this.state.error}>
+          <ModalHeader>Fehler!</ModalHeader>
+          <ModalBody>
+            Ihren Daten konnten nicht an uns übertragen werden!<br />
+
+            <Alert color="error">
+              ...Hier würden wir Ihnen dann Hilfestellung geben.
+            </Alert>
+
+            Demo Ende! 
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={()=>this.setState({error:false})}>Schließen</Button>
+          </ModalFooter>
+        </Modal>
       </Container>
     );
   }
