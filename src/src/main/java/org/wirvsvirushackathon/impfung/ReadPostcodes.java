@@ -58,7 +58,6 @@ public class ReadPostcodes {
                     int index = 0;
                     for (JsonElement _response : response) {
                         JsonObject address = _response.getAsJsonObject().get("address").getAsJsonObject();
-                        System.out.println("Size: " + response.size() + " - Index: " + index);
                         Postcode postcode = new Postcode();
                         postcode.setCitydistrict(address.get("county").getAsString().trim());
                         postcode.setCityname(address.get("village").getAsString().trim());
