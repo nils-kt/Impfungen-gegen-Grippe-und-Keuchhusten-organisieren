@@ -97,6 +97,6 @@ npm start
  - [Yannick Radke](https://github.com/YK18415) 
 
 ## ❤ Special thanks to
- - [Chris Smith](https://github.com/temar96) ([Helping with the wizards User step-validation](https://github.com/nils-kt/Impfungen-gegen-Grippe-und-Keuchhusten-organisieren/blob/e3732fdd52297230226c1f9e899992339c3035d9/src/frontend/src/components/appointment/steps/UserStep.js#L84))
- - [Josh Piper](https://github.com/JoshPiper) ([Helping with the wizards User step-validation](https://github.com/nils-kt/Impfungen-gegen-Grippe-und-Keuchhusten-organisieren/blob/e3732fdd52297230226c1f9e899992339c3035d9/src/frontend/src/components/appointment/steps/UserStep.js#L84))
+ - [Christopher Massey](https://github.com/temar96) ([Helping with the wizards User step-validation](https://github.com/nils-kt/Impfungen-gegen-Grippe-und-Keuchhusten-organisieren/blob/c9a12e9fbfe00bf028a28625f15f5f1a92eb0751/src/frontend/src/components/appointment/steps/UserStep.js#L80))
+ - [Josh Piper](https://github.com/JoshPiper) ([Helping with the wizards User step-validation](https://github.com/nils-kt/Impfungen-gegen-Grippe-und-Keuchhusten-organisieren/blob/c9a12e9fbfe00bf028a28625f15f5f1a92eb0751/src/frontend/src/components/appointment/steps/UserStep.js#L80))
 
