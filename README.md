@@ -45,7 +45,14 @@ You can find this in our [Google Document](https://docs.google.com/document/d/1l
 ## 💌 Contact
 > Drop us a line or write with us. Maybe ... help us?
 
-You can write in [Slack](https://wirvsvirus.slack.com/archives/C0103KPLPUK) with us, or in [Discord](https://discord.gg/pVkYShn) (recommended).
+You can visit our [Discord](https://discord.gg/pVkYShn).
+
+## Roadmap
+
+We've decided to continue developing this project on Bitbucket.<br />
+The backend was moved from Java Spring Boot to Node.js & Typescript.
+
+As soon as this project reaches production state, the code will be backported from Bitbucket to Github.
 
 ## 🤩 Result
 <img src="https://cdn.discordapp.com/attachments/691016855451730041/691450365446717461/nJ2pP5tEMv.gif" />
