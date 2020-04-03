@@ -21,6 +21,7 @@
 * [Contact](#-contact)
 * [Project Setup](#-project-setup)
 * [Contributor](#-contributor)
+* [Roadmap](#-roadmap)
 
 ## 🤯 Problem Statement
 > What exact problem are we trying to solve?
