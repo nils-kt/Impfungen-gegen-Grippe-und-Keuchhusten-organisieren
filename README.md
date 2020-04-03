@@ -47,7 +47,7 @@ You can find this in our [Google Document](https://docs.google.com/document/d/1l
 
 You can visit our [Discord](https://discord.gg/pVkYShn).
 
-## 🤝 Roadmap
+## 🛣️ Roadmap
 
 We've decided to continue developing this project on Bitbucket.<br />
 The backend was moved from Java Spring Boot to Node.js & Typescript.
